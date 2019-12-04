@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"> 
+    <link rel="stylesheet" href="styles.css">
+    <script type="text/javascript" src="app.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+</head>
+
+<body>
+    <div id="header">
+        <h1 style="opacity: 1;">TODO APPLICATION</h1>
+    </div>
+    <div id="container">
+            <div class="column" style="background-color:rgba(214, 0, 0,0.3);">
+                <h2>TODO</h2>
+                <div id= "todo" class="todo">
+
+                </div>
+                <input id="myBtn" type="image" src="add.png" alt="Submit" width="75" height="75">
+            </div>
+            <div class="column" style="background-color:rgba(0, 47, 255,0.3);">
+                <h2>IN PROGRESS</h2>
+                <div id= "progress" class="todo">
+
+                </div>
+            </div>
+            <div class="column" style="background-color:rgba(0, 173, 9,0.3);">
+                <h2>DONE</h2>
+                <div id = "done" class="todo">
+
+                </div>
+            </div>
+    </div>
+
+
+
+    <!-- The Modal -->
+    <div id="myModal" class="modal">
+    
+        <!-- Modal content -->
+        <div class="modal-content">
+            <div class="modal-header">
+                <span class="close">&times;</span>
+                <h2>Create your task</h2>
+            </div>
+            <div class="modal-body">
+                <form id="popupform" onsubmit="createNewTask();return false">
+                    <label for="name">Name</label>
+                    <input type="text" id="name" name="tname" placeholder="Name your task..">
+        
+                    <label for="description">Description</label>
+                    <input type="text" id="description" name="description" placeholder="Describe..">
+
+                    <label for="assignee">Assignee</label>
+                    <input type="text" id="assignee" name="assignee" placeholder="Who does this task..">
+
+                    <label for="priority">Priority</label>
+                    <input type="number" id="priority" name="priority" placeholder="4">
+        
+                    <input type="submit" value="Submit">
+                </form>
+            </div>
+        </div>
+    
+    </div>
+    <script>
+        initializeTodo();
+        updatePageWithPrio();
+    </script>
+    <script>
+        // Get the modal
+        var modal = document.getElementById('myModal');
+
+        // Get the button that opens the modal
+        var btn = document.getElementById("myBtn");
+
+        // Get the <span> element that closes the modal
+        var span = document.getElementsByClassName("close")[0];
+
+        // When the user clicks the button, open the modal 
+        btn.onclick = function () {
+            modal.style.display = "block";
+        }
+
+        // When the user clicks on <span> (x), close the modal
+        span.onclick = function () {
+            modal.style.display = "none";
+        }
+
+        // When the user clicks anywhere outside of the modal, close it
+        window.onclick = function (event) {
+            if (event.target == modal) {
+                modal.style.display = "none";
+            }
+        }
+    </script>
+    </body>
+
+</html>
